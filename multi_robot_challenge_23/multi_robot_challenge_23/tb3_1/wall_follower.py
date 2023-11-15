@@ -38,7 +38,7 @@ class WallFollowerClass(Node):
         self.state = 0
         self.state_dict = {
             0: 'find the wall',
-            1: 'turn left',
+            1: 'turn right',
             2: 'follow the wall',
         }
 
@@ -80,29 +80,29 @@ class WallFollowerClass(Node):
 
         d = 0.9
 
-        if regions['front'] > d and regions['fleft'] > d and regions['fright'] > d:
+        if regions['front'] > d and regions['fright'] > d and regions['fleft'] > d:
             state_description = 'case 1 - nothing'
             self.change_state(0)
-        elif regions['front'] < d and regions['fleft'] > d and regions['fright'] > d:
+        elif regions['front'] < d and regions['fright'] > d and regions['fleft'] > d:
             state_description = 'case 2 - front'
             self.change_state(1)
-        elif regions['front'] > d and regions['fleft'] > d and regions['fright'] < d:
+        elif regions['front'] > d and regions['fright'] > d and regions['fleft'] < d:
             state_description = 'case 3 - fright'
             self.change_state(2)
-        elif regions['front'] > d and regions['fleft'] < d and regions['fright'] > d:
-            state_description = 'case 4 - fleft'
+        elif regions['front'] > d and regions['fright'] < d and regions['fleft'] > d:
+            state_description = 'case 4 - fright'
             self.change_state(0)
-        elif regions['front'] < d and regions['fleft'] > d and regions['fright'] < d:
-            state_description = 'case 5 - front and fright'
+        elif regions['front'] < d and regions['fright'] > d and regions['fleft'] < d:
+            state_description = 'case 5 - front and fleft'
             self.change_state(1)
-        elif regions['front'] < d and regions['fleft'] < d and regions['fright'] > d:
-            state_description = 'case 6 - front and fleft'
+        elif regions['front'] < d and regions['fright'] < d and regions['fleft'] > d:
+            state_description = 'case 6 - front and fright'
             self.change_state(1)
-        elif regions['front'] < d and regions['fleft'] < d and regions['fright'] < d:
-            state_description = 'case 7 - front and fleft and fright'
+        elif regions['front'] < d and regions['fright'] < d and regions['fleft'] < d:
+            state_description = 'case 7 - front and fright and fleft'
             self.change_state(1)
-        elif regions['front'] > d and regions['fleft'] < d and regions['fright'] < d:
-            state_description = 'case 8 - fleft and fright'
+        elif regions['front'] > d and regions['fright'] < d and regions['fleft'] < d:
+            state_description = 'case 8 - fright and fleft'
             self.change_state(0)
         else:
             state_description = 'unknown case'
@@ -111,12 +111,12 @@ class WallFollowerClass(Node):
     def find_wall(self):
         msg = Twist()
         msg.linear.x = 0.3
-        msg.angular.z = -0.5
+        msg.angular.z = 0.5
         return msg
 
-    def turn_left(self):
+    def turn_right(self):
         msg = Twist()
-        msg.angular.z = 0.5
+        msg.angular.z = -0.5
         return msg
 
     def follow_the_wall(self):
@@ -131,7 +131,7 @@ class WallFollowerClass(Node):
         if self.state == 0:
             msg = self.find_wall()
         elif self.state == 1:
-            msg = self.turn_left()
+            msg = self.turn_right()
         elif self.state == 2:
             msg = self.follow_the_wall()
             pass
