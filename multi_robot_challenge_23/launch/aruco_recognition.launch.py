@@ -20,6 +20,7 @@ def generate_launch_description():
                     {"aruco_dictionary_id": "DICT_5X5_250"},
                     {"image_topic": "camera/image_raw"},
                     {"camera_info_topic": "camera/camera_info"}]
+                    #{"service_name": "/set_marker_position"}]
     )
 
     marker_trans = Node(

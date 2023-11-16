@@ -26,6 +26,7 @@ find_package(rosidl_default_generators REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "srv/GoToPoint.srv"
   "action/Bug2.action"
+  "srv/SetMarkerPosition.srv"
   DEPENDENCIES geometry_msgs
 )
 

@@ -7,12 +7,12 @@ def generate_launch_description():
             package='multi_robot_challenge_23',
             executable='robot_handler',
             namespace='tb3_0',
-            name='robot_handler'),
+            name='robot_handler_0'),
         launch_ros.actions.Node(
             package='multi_robot_challenge_23',
             executable='robot_handler',
             namespace='tb3_1',
-            name='robot_handler'),
+            name='robot_handler_1'),
         launch_ros.actions.Node(
             package='multi_robot_challenge_23',
             executable='leader',
