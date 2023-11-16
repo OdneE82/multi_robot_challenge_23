@@ -3,9 +3,13 @@
 For the first commits for the navigation algorithm, see: https://github.com/OdneE82/DAT160-SemesterProject
 
 division of work:
-odne: navigation
-knut: ar tags
-keyser: communication
+
+odne: navigation.
+
+knut: ar tags.
+
+keyser: communication.
+
 
 running:
 
