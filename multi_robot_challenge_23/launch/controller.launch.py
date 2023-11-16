@@ -62,6 +62,15 @@ def generate_launch_description():
         output='screen'
     )
 
+    # Robot handler
+
+    robot_handler = Node(
+        package='multi_robot_challenge_23',
+        executable='robot_handler',
+        name='robothandler',
+        output='screen'
+    )
+
     return LaunchDescription([
         bug2_tb3_0,
         go_to_point_tb3_0,
